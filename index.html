@@ -1,32 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9WQF8XB3W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M9WQF8XB3W');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./Style/style.css">
+    <title>JavaScript Portfolio </title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
 </head>
 <body>
-    <div class="outer">
-        <div class="prod-logo">
-            <img src="https://imgs.search.brave.com/L9dm2UI1w1il8ZV-wReceStKWNVr9rg3ApVIA75cx6w/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYXJ0cy5jb20v/ZmlsZXMvMy9MZXR0/ZXItSy1UcmFuc3Bh/cmVudC1JbWFnZS5w/bmc" class="prod-img" alt="icon"/>
-            <ul class="main-nav">
-                <li class="nav-li"><a href="#">Home</a></li>
-                <li class="nav-li"><a href="#">About</a></li>
-
-          </ul>
-        </div>
-        <div class="inner">
-            <div class="prod-left">
-                <h1 class="prod-head"><span style="color:#0f457f">JAVASCRIPT</span> PROJECT</h1>
-                <h4 class="prod-head-sub">Under Construction... sir gusto ko lang pumasa!!ayusin ko po sa next pasahan</h4>
-            </div>
-            <div class="prod-right">
-                <img src="https://imgs.search.brave.com/YFWPkwYOSL2G_mDiANLqgkbBlVC02vPM9KqY66TNeqw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS81/MTIvNDg2My80ODYz/NzkxLnBuZw" class="prod-human-img" alt="prod"/>
-            </div>
-        </div>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
     </div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Kyla's<span>Portfolio</span></a></div>
+            <ul class="menu">
+                <li><a href="index.html" id="home">Home</a></li>
+                <li><a href="JSProject/assets/html/about.html" id="about">About</a></li>
+                <li><a href="JSProject/assets/html/projects.html" id="projects">My Projects</a></li>
+                <li><a href="JSProject/assets/html/contact.html" id="contact">Contact</a></li>
 
-    <script src="./JS/script.js"></script>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">Hello, Welcome to my</div>
+                <div class="text-2">Portfolio in Advance Web Design</div>
+                <div class="text-3">And my name is <span class="typing"></span></div>
+                <a href="JSProject/assets/images/aboutme.png">Wanna know about me?</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="max-width">
+            <p> &copy; Advance Web Design Portfolio 2024</p>
+        </div>
+    </footer>
+    
+    <!-- Include other HTML files using JavaScript -->
+    <div id="content"></div>
+
+    <script src="./assets/js/script.js"></script>
+    <script>
+      // Load the content based on the URL hash
+      function loadContent() {
+        const url = window.location.hash.substr(1);
+        const container = document.getElementById('content');
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            container.innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open('GET', url + '.html', true);
+        xhr.send();
+      }
+      // Load the initial content
+      loadContent();
+      // Update the content when the hash changes
+      window.addEventListener('hashchange', loadContent);
+    </script>
 </body>
 </html>
